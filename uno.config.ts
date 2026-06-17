@@ -149,6 +149,14 @@ const themeColors = {
   card: {
     DEFAULT: 'hsl(var(--card) / <alpha-value>)',
     foreground: 'hsl(var(--card-foreground) / <alpha-value>)'
+  },
+  // ── Coffee & Cowrie brand tokens (charte graphique) ──
+  coco: {
+    green:  '#1a244f',
+    ivory:  '#F7F1E5',
+    lime:   '#fff449',
+    orange: '#cf8429',
+    black:  '#0a0a0a'
   }
 }
 
@@ -159,15 +167,48 @@ export default defineConfig({
   ],
   rules: [],
   theme: {
-    colors: themeColors
+    colors: themeColors,
+    // ── Gilroy — police officielle Coffee & Cowrie (charte graphique) ──
+    fontFamily: {
+      sans:    ['Gilroy', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      display: ['Gilroy', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      serif:   ['Gilroy', 'ui-sans-serif', 'system-ui', 'sans-serif']
+    },
+    transitionTimingFunction: {
+      'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
+      'slow-mo':  'cubic-bezier(0.7, 0, 0.3, 1)'
+    },
+    backgroundImage: {
+      // Grain de bruit pour overlays (bg-noise)
+      noise: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")"
+    }
   },
   // https://unocss.dev/guide/extracting#limitations
+  // Classes dynamiques (ternaires) que le scanner ne peut pas détecter statiquement
   safelist: [
-    // TOC
+    // Base
     'rounded-t-2xl',
     'rounded-b-2xl',
-    // Typography
     'text-base',
-    'prose'
+    'prose',
+    // Navigation active / hover
+    'text-coco-orange',
+    'text-coco-green',
+    'hover:text-coco-orange',
+    'hover:text-coco-green',
+    'text-coco-green/80',
+    // Group hover utilities utilisés dans index.astro
+    'group-hover:opacity-100',
+    'group-hover:opacity-70',
+    'group-hover:grayscale-0',
+    'group-hover:scale-105',
+    'group-hover:translate-y-0',
+    'group-hover:-translate-y-2',
+    'group-hover:translate-x-1',
+    'group-hover:text-coco-orange',
+    'group-hover:text-coco-ivory',
+    'group-hover:text-coco-ivory/80',
+    'group-hover:bg-coco-green',
+    'group-hover:bg-coco-orange'
   ]
 })

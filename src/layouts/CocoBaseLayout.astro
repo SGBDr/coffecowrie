@@ -40,42 +40,8 @@ const navRight = [
   <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin="">
   <link href="https://fonts.cdnfonts.com/css/gilroy-free" rel="stylesheet">
 
-  <!-- Tailwind Play CDN -->
-  <script is:inline src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
-  <script is:inline src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Tailwind config with coco design tokens -->
-  <script is:inline>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            coco: {
-              green: '#1a244f',
-              ivory: '#F7F1E5',
-              lime: '#fff449',
-              orange: '#cf8429',
-              black: '#0a0a0a',
-            }
-          },
-          fontFamily: {
-            // Gilroy — police unique définie par la charte graphique Coffee & Cowrie
-            sans:    ['Gilroy', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            display: ['Gilroy', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            serif:   ['Gilroy', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-          },
-          transitionTimingFunction: {
-            'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
-            'slow-mo': 'cubic-bezier(0.7, 0, 0.3, 1)',
-          },
-          backgroundImage: {
-            'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")",
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Lucide Icons (pinned — évite les breaking changes de @latest) -->
+  <script is:inline src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
 
   <style is:global>
     body {
