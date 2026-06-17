@@ -181,20 +181,20 @@ export default defineConfig({
     }
   },
   // https://unocss.dev/guide/extracting#limitations
-  // Classes dynamiques (ternaires) que le scanner ne peut pas détecter statiquement
+  // Classes dynamiques que le scanner statique ne peut pas détecter
   safelist: [
     // Base
     'rounded-t-2xl',
     'rounded-b-2xl',
     'text-base',
     'prose',
-    // Navigation active / hover
+    // Navigation active / hover (ternaires dans CocoBaseLayout)
     'text-coco-orange',
     'text-coco-green',
     'hover:text-coco-orange',
     'hover:text-coco-green',
     'text-coco-green/80',
-    // Group hover utilities utilisés dans index.astro
+    // Group hover utilities (index.astro)
     'group-hover:opacity-100',
     'group-hover:opacity-70',
     'group-hover:grayscale-0',
@@ -206,6 +206,17 @@ export default defineConfig({
     'group-hover:text-coco-ivory',
     'group-hover:text-coco-ivory/80',
     'group-hover:bg-coco-green',
-    'group-hover:bg-coco-orange'
+    'group-hover:bg-coco-orange',
+    // Classes injectées dynamiquement par le script JS de text-reveal (CocoBaseLayout)
+    // Ces classes sont ajoutées via classList.add() / span.innerHTML au runtime
+    'inline-block',
+    'overflow-hidden',
+    'align-top',
+    'mr-3',
+    'translate-y-full',
+    'transition-transform',
+    'duration-700',
+    'opacity-0',
+    'opacity-1'
   ]
 })
