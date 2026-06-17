@@ -165,22 +165,19 @@ export default defineConfig({
     presetWind3(), // required
     presetTypography(typographyConfig)
   ],
-  rules: [],
+  rules: [
+    // bg-noise — grain SVG pour les overlays (index.astro)
+    ['bg-noise', {
+      'background-image': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")"
+    }]
+  ],
   theme: {
     colors: themeColors,
     // ── Gilroy — police officielle Coffee & Cowrie (charte graphique) ──
     fontFamily: {
-      sans:    ['Gilroy', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-      display: ['Gilroy', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-      serif:   ['Gilroy', 'ui-sans-serif', 'system-ui', 'sans-serif']
-    },
-    transitionTimingFunction: {
-      'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
-      'slow-mo':  'cubic-bezier(0.7, 0, 0.3, 1)'
-    },
-    backgroundImage: {
-      // Grain de bruit pour overlays (bg-noise)
-      noise: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")"
+      sans:    'Gilroy, ui-sans-serif, system-ui, sans-serif',
+      display: 'Gilroy, ui-sans-serif, system-ui, sans-serif',
+      serif:   'Gilroy, ui-sans-serif, system-ui, sans-serif'
     }
   },
   // https://unocss.dev/guide/extracting#limitations

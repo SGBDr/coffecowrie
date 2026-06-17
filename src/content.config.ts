@@ -63,6 +63,9 @@ const journal = defineCollection({
       title: z.string().max(120),
       description: z.string().max(300),
       publishDate: z.coerce.date(),
+      // Champs attendus par astro-pure/utils/server.ts
+      updatedDate: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
       category: z.string().default('Insight'),
       section: z.enum(['insights', 'interviews', 'cases']).default('insights'),
       author: z.string().default('Editorial Team'),
